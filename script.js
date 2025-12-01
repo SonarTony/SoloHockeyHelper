@@ -30,6 +30,14 @@ const cardImagesEven = {
   "3-4": "images/even_3_4.png",
   "3-5": "images/even_3_5.png",
   "3-6": "images/even_3_6.png",
+
+    // row 4 (white 4)
+    "4-1": "images/even_4_1.png",
+    "4-2": "images/even_4_2.png",
+    "4-3": "images/even_4_3.png",
+    "4-4": "images/even_4_4.png",
+    "4-5": "images/even_4_5.png",
+    "4-6": "images/even_4_6.png",
 };
 
 const cardImagesPP = {
