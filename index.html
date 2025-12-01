@@ -13,6 +13,7 @@
     </header>
 
     <main>
+      <!-- Left side: dice and roll controls -->
       <section class="dice-area">
         <div class="mode-toggle">
           <span class="mode-label">Mode:</span>
@@ -55,11 +56,20 @@
         </div>
       </section>
 
+      <!-- Right side: card and always visible shot chart -->
       <section class="card-area">
         <h2>Result Card</h2>
-        <div id="cardContainer" class="card-container hidden">
-          <img id="resultCardImage" src="" alt="Result card" />
+
+        <div class="card-row">
+          <div id="cardContainer" class="card-container hidden">
+            <img id="resultCardImage" src="" alt="Result card">
+          </div>
+
+          <div class="shot-chart-container">
+            <img src="images/shot_chart.png" alt="Shot result chart">
+          </div>
         </div>
+
         <div id="noCardMessage" class="no-card-message">
           No card for this white and black combo yet.
         </div>
@@ -70,4 +80,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-

@@ -37,9 +37,18 @@ main {
   gap: 20px;
 }
 
-.dice-area,
+/* Panels */
+
+.dice-area {
+  flex: 0 0 280px; /* dice panel */
+  background: #1f2937;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
 .card-area {
-  flex: 1 1 320px;
+  flex: 1 1 520px; /* card panel */
   background: #1f2937;
   border-radius: 8px;
   padding: 16px;
@@ -155,7 +164,7 @@ main {
   color: #e5e7eb;
 }
 
-/* Card display area */
+/* Card area */
 
 .card-area h2 {
   margin-top: 0;
@@ -163,18 +172,42 @@ main {
   font-size: 1.1rem;
 }
 
+.card-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+/* Main event card container */
+
 .card-container {
+  flex: 1 1 auto;
   border-radius: 8px;
   background: #111827;
-  padding: 10px;
+  padding: 8px;
   text-align: center;
 }
 
 .card-container img {
-  max-width: 100%;
+  max-width: 100%;  /* slightly larger than before */
   height: auto;
   display: block;
   margin: 0 auto;
+}
+
+/* Side shot chart – unchanged */
+
+.shot-chart-container {
+  flex: 0 0 135px;
+  background: #111827;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.shot-chart-container img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 .no-card-message {
@@ -193,5 +226,23 @@ main {
   main {
     flex-direction: column;
   }
+
+  .dice-area,
+  .card-area {
+    flex: 1 1 auto;
+  }
+
+  .card-row {
+    flex-direction: row;
+  }
+
+  .shot-chart-container {
+    flex: 0 0 125px;
+  }
 }
+
+
+
+
+
 

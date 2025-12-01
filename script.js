@@ -3,11 +3,9 @@ function rollDie(sides) {
   return Math.floor(Math.random() * sides) + 1;
 }
 
-// Card maps for each mode.
-// Extend these as you add more cards.
-
+// All even strength cards: white 1 to 6, black 1 to 6
 const cardImagesEven = {
-  // row 1 (white 1)
+  // white 1
   "1-1": "images/even_1_1.png",
   "1-2": "images/even_1_2.png",
   "1-3": "images/even_1_3.png",
@@ -15,7 +13,7 @@ const cardImagesEven = {
   "1-5": "images/even_1_5.png",
   "1-6": "images/even_1_6.png",
 
-  // row 2 (white 2)
+  // white 2
   "2-1": "images/even_2_1.png",
   "2-2": "images/even_2_2.png",
   "2-3": "images/even_2_3.png",
@@ -23,7 +21,7 @@ const cardImagesEven = {
   "2-5": "images/even_2_5.png",
   "2-6": "images/even_2_6.png",
 
-  //row 3 (white 3)
+  // white 3
   "3-1": "images/even_3_1.png",
   "3-2": "images/even_3_2.png",
   "3-3": "images/even_3_3.png",
@@ -31,42 +29,37 @@ const cardImagesEven = {
   "3-5": "images/even_3_5.png",
   "3-6": "images/even_3_6.png",
 
-    // row 4 (white 4)
-    "4-1": "images/even_4_1.png",
-    "4-2": "images/even_4_2.png",
-    "4-3": "images/even_4_3.png",
-    "4-4": "images/even_4_4.png",
-    "4-5": "images/even_4_5.png",
-    "4-6": "images/even_4_6.png",
+  // white 4
+  "4-1": "images/even_4_1.png",
+  "4-2": "images/even_4_2.png",
+  "4-3": "images/even_4_3.png",
+  "4-4": "images/even_4_4.png",
+  "4-5": "images/even_4_5.png",
+  "4-6": "images/even_4_6.png",
 
-    // row 5 (white 5)
-    "5-1": "images/even_5_1.png",
-    "5-2": "images/even_5_2.png",
-    "5-3": "images/even_5_3.png",
-    "5-4": "images/even_5_4.png",
-    "5-5": "images/even_5_5.png",
-    "5-6": "images/even_5_6.png",
+  // white 5
+  "5-1": "images/even_5_1.png",
+  "5-2": "images/even_5_2.png",
+  "5-3": "images/even_5_3.png",
+  "5-4": "images/even_5_4.png",
+  "5-5": "images/even_5_5.png",
+  "5-6": "images/even_5_6.png",
 
-    // row 6 (white 6)
-    "6-1": "images/even_6_1.png",
-    "6-2": "images/even_6_2.png",
-    "6-3": "images/even_6_3.png",
-    "6-4": "images/even_6_4.png",
-    "6-5": "images/even_6_5.png",
-    "6-6": "images/even_6_6.png",
+  // white 6
+  "6-1": "images/even_6_1.png",
+  "6-2": "images/even_6_2.png",
+  "6-3": "images/even_6_3.png",
+  "6-4": "images/even_6_4.png",
+  "6-5": "images/even_6_5.png",
+  "6-6": "images/even_6_6.png"
 };
 
+// Power play map placeholder
+// Add entries here as you create power play images
 const cardImagesPP = {
-  // Power play cards as you add them
+  // example entries
   "1-1": "images/pp_1_1.png",
   "1-2": "images/pp_1_2.png"
-  // later:
-  // "1-3": "images/pp_1_3.png",
-  // "1-4": "images/pp_1_4.png",
-  // "1-5": "images/pp_1_5.png",
-  // "1-6": "images/pp_1_6.png",
-  // "2-1": "images/pp_2_1.png",
-  // "2-2": "images/pp_2_2.png", etc.
 };
 
 let currentMode = "even";
@@ -140,12 +133,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const rollButton = document.getElementById("rollButton");
   rollButton.addEventListener("click", rollAllDice);
 
-  // Mode radio buttons
   const modeRadios = document.querySelectorAll('input[name="mode"]');
   modeRadios.forEach(function (radio) {
     radio.addEventListener("change", function (e) {
       currentMode = e.target.value;
-      // After changing mode, if we already have dice rolled, refresh card
+
+      // If dice already rolled, refresh card and text
       const whiteText = document.getElementById("whiteDie").textContent;
       const blackText = document.getElementById("blackDie").textContent;
       const white = parseInt(whiteText, 10);
@@ -153,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (!isNaN(white) && !isNaN(black)) {
         updateCardDisplay(white, black);
-        // Also refresh text so mode name matches
+
         const red = parseInt(
           document.getElementById("redDie").textContent,
           10
@@ -169,6 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
 
 
 
