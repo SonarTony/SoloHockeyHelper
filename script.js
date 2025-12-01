@@ -20,9 +20,13 @@ const cardImagesEven = {
   "2-2": "images/even_2_2.png",
   "2-3": "images/even_2_3.png",
   "2-4": "images/even_2_4.png",
-   "2-5": "images/even_2_5.png",
+  "2-5": "images/even_2_5.png",
   "2-6": "images/even_2_6.png",
-  // you can add "2-3" etc later
+
+  //row 3 (white 3)
+  "3-1": "images/even_3_1.png",
+  "3-2": "images/even_3_2.png",
+  
 };
 
 const cardImagesPP = {
