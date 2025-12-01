@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Solo Hockey Helper</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Solo Hockey Helper</h1>
+      <p>Roll white d6, black d6, red d6, and green d20.</p>
+    </header>
+
+    <main>
+      <section class="dice-area">
+        <div class="dice-row">
+          <div class="die-box white">
+            <span class="die-label">White d6</span>
+            <span id="whiteDie" class="die-value">-</span>
+          </div>
+          <div class="die-box black">
+            <span class="die-label">Black d6</span>
+            <span id="blackDie" class="die-value">-</span>
+          </div>
+        </div>
+
+        <div class="dice-row">
+          <div class="die-box red">
+            <span class="die-label">Red d6</span>
+            <span id="redDie" class="die-value">-</span>
+          </div>
+          <div class="die-box green">
+            <span class="die-label">Green d20</span>
+            <span id="greenDie" class="die-value">-</span>
+          </div>
+        </div>
+
+        <button id="rollButton" class="roll-button">Roll</button>
+
+        <div id="resultText" class="result-text">
+          Result will show here.
+        </div>
+      </section>
+
+      <section class="card-area">
+        <h2>Result Card</h2>
+        <div id="cardContainer" class="card-container hidden">
+          <img id="resultCardImage" src="" alt="Result card" />
+        </div>
+        <div id="noCardMessage" class="no-card-message">
+          No card for this white / black combo yet.
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
