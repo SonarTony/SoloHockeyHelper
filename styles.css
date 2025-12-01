@@ -10,7 +10,7 @@ body {
 }
 
 .app {
-  max-width: 900px;
+  width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -40,7 +40,7 @@ main {
 /* Panels */
 
 .dice-area {
-  flex: 0 0 280px; /* dice panel */
+  flex: 0 0 280px;
   background: #1f2937;
   border-radius: 8px;
   padding: 16px;
@@ -48,7 +48,7 @@ main {
 }
 
 .card-area {
-  flex: 1 1 520px; /* card panel */
+  flex: 0 0 820px;
   background: #1f2937;
   border-radius: 8px;
   padding: 16px;
@@ -160,7 +160,7 @@ main {
 
 .result-text {
   margin-top: 10px;
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   color: #e5e7eb;
 }
 
@@ -178,7 +178,7 @@ main {
   align-items: flex-start;
 }
 
-/* Main event card container */
+/* Main event card container (even image) */
 
 .card-container {
   flex: 1 1 auto;
@@ -189,22 +189,37 @@ main {
 }
 
 .card-container img {
-  max-width: 100%;  /* slightly larger than before */
+  max-width: 88%;  /* slightly smaller than before */
   height: auto;
   display: block;
   margin: 0 auto;
 }
 
-/* Side shot chart – unchanged */
+/* Shot chart – ever so slightly larger */
 
 .shot-chart-container {
-  flex: 0 0 135px;
+  flex: 0 0 140px;  /* was 135px */
   background: #111827;
   border-radius: 8px;
   padding: 10px;
 }
 
 .shot-chart-container img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Results chart (goal chart) – a little longer */
+
+.goal-chart-container {
+  flex: 0 0 155px;  /* was 150px */
+  background: #111827;
+  border-radius: 8px;
+  padding: 14px;   /* was 12px */
+}
+
+.goal-chart-container img {
   display: block;
   max-width: 100%;
   height: auto;
@@ -239,7 +254,15 @@ main {
   .shot-chart-container {
     flex: 0 0 125px;
   }
+
+  .goal-chart-container {
+    flex: 0 0 140px;
+  }
 }
+
+
+
+
 
 
 
