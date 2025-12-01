@@ -40,7 +40,7 @@ main {
 /* Panels */
 
 .dice-area {
-  flex: 0 0 280px;
+  flex: 0 0 320px;
   background: #1f2937;
   border-radius: 8px;
   padding: 16px;
@@ -48,7 +48,7 @@ main {
 }
 
 .card-area {
-  flex: 0 0 820px;
+  flex: 0 0 760px;
   background: #1f2937;
   border-radius: 8px;
   padding: 16px;
@@ -59,9 +59,9 @@ main {
 
 .mode-toggle {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
-  gap: 10px;
+  gap: 16px;
   margin-bottom: 14px;
 }
 
@@ -189,16 +189,16 @@ main {
 }
 
 .card-container img {
-  max-width: 88%;  /* slightly smaller than before */
+  max-width: 96%;  /* ONLY CHANGE: even card image ~10% bigger */
   height: auto;
   display: block;
   margin: 0 auto;
 }
 
-/* Shot chart – ever so slightly larger */
+/* Shot chart */
 
 .shot-chart-container {
-  flex: 0 0 140px;  /* was 135px */
+  flex: 0 0 140px;
   background: #111827;
   border-radius: 8px;
   padding: 10px;
@@ -210,13 +210,13 @@ main {
   height: auto;
 }
 
-/* Results chart (goal chart) – a little longer */
+/* Results chart (goal chart) */
 
 .goal-chart-container {
-  flex: 0 0 155px;  /* was 150px */
+  flex: 0 0 155px;
   background: #111827;
   border-radius: 8px;
-  padding: 14px;   /* was 12px */
+  padding: 14px;
 }
 
 .goal-chart-container img {
