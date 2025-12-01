@@ -14,6 +14,18 @@
 
     <main>
       <section class="dice-area">
+        <div class="mode-toggle">
+          <span class="mode-label">Mode:</span>
+          <label class="mode-option">
+            <input type="radio" name="mode" value="even" checked>
+            Even Strength
+          </label>
+          <label class="mode-option">
+            <input type="radio" name="mode" value="pp">
+            Power Play
+          </label>
+        </div>
+
         <div class="dice-row">
           <div class="die-box white">
             <span class="die-label">White d6</span>
@@ -49,7 +61,7 @@
           <img id="resultCardImage" src="" alt="Result card" />
         </div>
         <div id="noCardMessage" class="no-card-message">
-          No card for this white / black combo yet.
+          No card for this white and black combo yet.
         </div>
       </section>
     </main>
@@ -58,3 +70,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
