@@ -38,6 +38,22 @@ const cardImagesEven = {
     "4-4": "images/even_4_4.png",
     "4-5": "images/even_4_5.png",
     "4-6": "images/even_4_6.png",
+
+    // row 5 (white 5)
+    "5-1": "images/even_5_1.png",
+    "5-2": "images/even_5_2.png",
+    "5-3": "images/even_5_3.png",
+    "5-4": "images/even_5_4.png",
+    "5-5": "images/even_5_5.png",
+    "5-6": "images/even_5_6.png",
+
+    // row 6 (white 6)
+    "6-1": "images/even_6_1.png",
+    "6-2": "images/even_6_2.png",
+    "6-3": "images/even_6_3.png",
+    "6-4": "images/even_6_4.png",
+    "6-5": "images/even_6_5.png",
+    "6-6": "images/even_6_6.png",
 };
 
 const cardImagesPP = {
