@@ -7,31 +7,31 @@ function rollDie(sides) {
 // Extend these as you add more cards.
 
 const cardImagesEven = {
-  // white 1, black 1
+  // row 1 (white 1)
   "1-1": "images/even_1_1.png",
-  // white 1, black 2
   "1-2": "images/even_1_2.png",
-  // white 1, black 3
   "1-3": "images/even_1_3.png",
-  // white 1, black 4
   "1-4": "images/even_1_4.png",
-  // white 1, black 5
   "1-5": "images/even_1_5.png",
-  // white 1, black 6
-  "1-6": "images/even_1_6.png"
+  "1-6": "images/even_1_6.png",
+
+  // row 2 (white 2)
+  "2-1": "images/even_2_1.png",
+  "2-2": "images/even_2_2.png"
+  // you can add "2-3" etc later
 };
 
 const cardImagesPP = {
   // Power play cards as you add them
-  // white 1, black 1
   "1-1": "images/pp_1_1.png",
-  // white 1, black 2
   "1-2": "images/pp_1_2.png"
-  // Add later:
+  // later:
   // "1-3": "images/pp_1_3.png",
   // "1-4": "images/pp_1_4.png",
   // "1-5": "images/pp_1_5.png",
-  // "1-6": "images/pp_1_6.png"
+  // "1-6": "images/pp_1_6.png",
+  // "2-1": "images/pp_2_1.png",
+  // "2-2": "images/pp_2_2.png", etc.
 };
 
 let currentMode = "even";
@@ -134,5 +134,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
 
 
