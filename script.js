@@ -108,6 +108,16 @@ const shotCButton = document.getElementById('shotCButton');
 const shotCOverlayEl = document.getElementById('shotCOverlay');
 const closeShotCOverlayBtn = document.getElementById('closeShotCOverlay');
 
+// Penalty overlay elements
+const penaltyButton = document.getElementById('penaltyButton');
+const penaltyOverlayEl = document.getElementById('penaltyOverlay');
+const closePenaltyOverlayBtn = document.getElementById('closePenaltyOverlay');
+
+// Brutal Play overlay elements
+const brutalButton = document.getElementById('brutalButton');
+const brutalOverlayEl = document.getElementById('brutalOverlay');
+const closeBrutalOverlayBtn = document.getElementById('closeBrutalOverlay');
+
 let currentMode = 'even';
 let lastRoll = {
   white: null,
@@ -126,6 +136,8 @@ if (deflectionOverlayEl) deflectionOverlayEl.style.display = 'none';
 if (chaosOverlayEl) chaosOverlayEl.style.display = 'none';
 if (goalEffectOverlayEl) goalEffectOverlayEl.style.display = 'none';
 if (shotCOverlayEl) shotCOverlayEl.style.display = 'none';
+if (penaltyOverlayEl) penaltyOverlayEl.style.display = 'none';
+if (brutalOverlayEl) brutalOverlayEl.style.display = 'none';
 
 // Mode change handler
 modeRadios.forEach(radio => {
@@ -218,6 +230,8 @@ wireOverlay(deflectionButton, deflectionOverlayEl, closeDeflectionOverlayBtn);
 wireOverlay(chaosButton, chaosOverlayEl, closeChaosOverlayBtn);
 wireOverlay(goalEffectButton, goalEffectOverlayEl, closeGoalEffectOverlayBtn);
 wireOverlay(shotCButton, shotCOverlayEl, closeShotCOverlayBtn);
+wireOverlay(penaltyButton, penaltyOverlayEl, closePenaltyOverlayBtn);
+wireOverlay(brutalButton, brutalOverlayEl, closeBrutalOverlayBtn);
 
 /* ---------- Card + text updates ---------- */
 
