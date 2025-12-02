@@ -86,6 +86,11 @@ const homePlusBtn = document.getElementById('homePlus');
 const visitorMinusBtn = document.getElementById('visitorMinus');
 const visitorPlusBtn = document.getElementById('visitorPlus');
 
+// Period elements
+const periodDisplayEl = document.getElementById('periodDisplay');
+const periodMinusBtn = document.getElementById('periodMinus');
+const periodPlusBtn = document.getElementById('periodPlus');
+
 // Goalie overlay elements
 const goalieButton = document.getElementById('goalieButton');
 const goalieOverlayEl = document.getElementById('goalieOverlay');
@@ -140,6 +145,10 @@ let clockSeconds = 20 * 60; // 1200 seconds
 // SCOREBOARD STATE
 let homeScore = 0;
 let visitorScore = 0;
+
+// PERIOD STATE (1,2,3,OT,SO)
+const periodStates = ['1', '2', '3', 'OT', 'SO'];
+let periodIndex = 0;
 
 // Make sure overlays start hidden
 if (goalieOverlayEl) goalieOverlayEl.style.display = 'none';
@@ -243,6 +252,32 @@ if (visitorPlusBtn) {
   });
 }
 
+/* ---------- Period logic ---------- */
+
+function updatePeriodDisplay() {
+  if (periodDisplayEl) {
+    periodDisplayEl.textContent = periodStates[periodIndex];
+  }
+}
+
+if (periodMinusBtn) {
+  periodMinusBtn.addEventListener('click', () => {
+    if (periodIndex > 0) {
+      periodIndex--;
+      updatePeriodDisplay();
+    }
+  });
+}
+
+if (periodPlusBtn) {
+  periodPlusBtn.addEventListener('click', () => {
+    if (periodIndex < periodStates.length - 1) {
+      periodIndex++;
+      updatePeriodDisplay();
+    }
+  });
+}
+
 /* ---------- Overlay helpers ---------- */
 
 function wireOverlay(openBtn, overlay, closeBtn) {
@@ -315,10 +350,12 @@ function updateCard() {
   }
 }
 
-// Initial text, clock, and scores
+// Initial text, clock, scores, and period
 updateResultText();
 updateClockDisplay();
 updateScoreDisplay();
+updatePeriodDisplay();
+
 
 
 
