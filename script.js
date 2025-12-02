@@ -73,6 +73,11 @@ const noCardMessageEl = document.getElementById('noCardMessage');
 
 const modeRadios = document.querySelectorAll('input[name="mode"]');
 
+// Game clock elements
+const gameClockEl = document.getElementById('gameClock');
+const clockMinusBtn = document.getElementById('clockMinus');
+const clockPlusBtn = document.getElementById('clockPlus');
+
 // Goalie overlay elements
 const goalieButton = document.getElementById('goalieButton');
 const goalieOverlayEl = document.getElementById('goalieOverlay');
@@ -111,6 +116,9 @@ let lastRoll = {
   green: null
 };
 
+// GAME CLOCK STATE (20:00 in seconds)
+let clockSeconds = 20 * 60; // 1200 seconds
+
 // Make sure overlays start hidden
 if (goalieOverlayEl) goalieOverlayEl.style.display = 'none';
 if (reboundOverlayEl) reboundOverlayEl.style.display = 'none';
@@ -145,6 +153,36 @@ rollButton.addEventListener('click', () => {
   updateResultText();
   updateCard();
 });
+
+/* ---------- Game clock logic ---------- */
+
+function formatClock(secs) {
+  const minutes = Math.floor(secs / 60);
+  const seconds = secs % 60;
+  return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+}
+
+function updateClockDisplay() {
+  if (gameClockEl) {
+    gameClockEl.textContent = formatClock(clockSeconds);
+  }
+}
+
+// manual -0:20, clamped at 0
+if (clockMinusBtn) {
+  clockMinusBtn.addEventListener('click', () => {
+    clockSeconds = Math.max(0, clockSeconds - 20);
+    updateClockDisplay();
+  });
+}
+
+// manual +0:20, clamped at 20:00 (period length)
+if (clockPlusBtn) {
+  clockPlusBtn.addEventListener('click', () => {
+    clockSeconds = Math.min(20 * 60, clockSeconds + 20);
+    updateClockDisplay();
+  });
+}
 
 /* ---------- Overlay helpers ---------- */
 
@@ -216,8 +254,11 @@ function updateCard() {
   }
 }
 
-// Initial text
+// Initial text and clock display
 updateResultText();
+updateClockDisplay();
+
+
 
 
 

@@ -345,7 +345,55 @@ main {
     max-width: 100%;
     max-height: 100%;
   }
+
+  
+
+/* Game clock – centered and bigger */
+
+.game-clock {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;      /* centers the whole block in the left column */
+  width: 100%;
+  max-width: 220px;        /* keeps it tight */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
+
+.game-clock-title {
+  font-size: 1.2rem !important;
+  margin-bottom: 6px;
+}
+
+.clock-display {
+  font-size: 2.6rem !important;  /* make the time big */
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.clock-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  width: 100%;
+}
+
+.clock-button {
+  min-width: 100px;
+  padding: 6px 10px;
+  font-size: 1.05rem !important;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+}
+
+
+
 
 
 
