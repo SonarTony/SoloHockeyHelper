@@ -178,7 +178,7 @@ main {
   align-items: flex-start;
 }
 
-/* Main event card container (even / PP image) */
+/* Main event card container */
 
 .card-container {
   flex: 1 1 auto;
@@ -235,6 +235,18 @@ main {
   display: none;
 }
 
+/* NEW: No Goal PP image under result text */
+
+.no-goal-pp {
+  margin-top: 8px;
+  text-align: center;
+}
+
+.no-goal-pp img {
+  max-width: 100%;
+  height: auto;
+}
+
 /* Small screens */
 
 @media (max-width: 640px) {
@@ -259,6 +271,7 @@ main {
     flex: 0 0 140px;
   }
 }
+
 
 
 
