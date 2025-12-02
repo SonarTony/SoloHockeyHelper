@@ -78,6 +78,14 @@ const gameClockEl = document.getElementById('gameClock');
 const clockMinusBtn = document.getElementById('clockMinus');
 const clockPlusBtn = document.getElementById('clockPlus');
 
+// Scoreboard elements
+const homeScoreEl = document.getElementById('homeScore');
+const visitorScoreEl = document.getElementById('visitorScore');
+const homeMinusBtn = document.getElementById('homeMinus');
+const homePlusBtn = document.getElementById('homePlus');
+const visitorMinusBtn = document.getElementById('visitorMinus');
+const visitorPlusBtn = document.getElementById('visitorPlus');
+
 // Goalie overlay elements
 const goalieButton = document.getElementById('goalieButton');
 const goalieOverlayEl = document.getElementById('goalieOverlay');
@@ -128,6 +136,10 @@ let lastRoll = {
 
 // GAME CLOCK STATE (20:00 in seconds)
 let clockSeconds = 20 * 60; // 1200 seconds
+
+// SCOREBOARD STATE
+let homeScore = 0;
+let visitorScore = 0;
 
 // Make sure overlays start hidden
 if (goalieOverlayEl) goalieOverlayEl.style.display = 'none';
@@ -193,6 +205,41 @@ if (clockPlusBtn) {
   clockPlusBtn.addEventListener('click', () => {
     clockSeconds = Math.min(20 * 60, clockSeconds + 20);
     updateClockDisplay();
+  });
+}
+
+/* ---------- Scoreboard logic ---------- */
+
+function updateScoreDisplay() {
+  if (homeScoreEl) homeScoreEl.textContent = homeScore.toString();
+  if (visitorScoreEl) visitorScoreEl.textContent = visitorScore.toString();
+}
+
+// Home score buttons
+if (homeMinusBtn) {
+  homeMinusBtn.addEventListener('click', () => {
+    homeScore = Math.max(0, homeScore - 1);
+    updateScoreDisplay();
+  });
+}
+if (homePlusBtn) {
+  homePlusBtn.addEventListener('click', () => {
+    homeScore = Math.min(99, homeScore + 1);
+    updateScoreDisplay();
+  });
+}
+
+// Visitor score buttons
+if (visitorMinusBtn) {
+  visitorMinusBtn.addEventListener('click', () => {
+    visitorScore = Math.max(0, visitorScore - 1);
+    updateScoreDisplay();
+  });
+}
+if (visitorPlusBtn) {
+  visitorPlusBtn.addEventListener('click', () => {
+    visitorScore = Math.min(99, visitorScore + 1);
+    updateScoreDisplay();
   });
 }
 
@@ -268,9 +315,11 @@ function updateCard() {
   }
 }
 
-// Initial text and clock display
+// Initial text, clock, and scores
 updateResultText();
 updateClockDisplay();
+updateScoreDisplay();
+
 
 
 

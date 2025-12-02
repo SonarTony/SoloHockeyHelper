@@ -82,6 +82,34 @@
             </button>
           </div>
         </div>
+
+        <!-- SCOREBOARD (below game clock, fits in left panel) -->
+        <div class="scoreboard"
+             style="margin-top:18px; display:flex; flex-direction:column; align-items:center; text-align:center; gap:8px;">
+          <h3 style="font-size:1.15rem; margin-bottom:2px;">Score</h3>
+
+          <div class="score-row"
+               style="display:flex; align-items:center; justify-content:space-between; width:100%; max-width:260px; gap:8px;">
+            <div style="flex:1; text-align:left; font-weight:600;">Home</div>
+            <button id="homeMinus"
+                    style="padding:4px 8px; min-width:32px; font-size:0.95rem;">-</button>
+            <div id="homeScore"
+                 style="min-width:30px; text-align:center; font-size:1.5rem; font-weight:700;">0</div>
+            <button id="homePlus"
+                    style="padding:4px 8px; min-width:32px; font-size:0.95rem;">+</button>
+          </div>
+
+          <div class="score-row"
+               style="display:flex; align-items:center; justify-content:space-between; width:100%; max-width:260px; gap:8px;">
+            <div style="flex:1; text-align:left; font-weight:600;">Visitors</div>
+            <button id="visitorMinus"
+                    style="padding:4px 8px; min-width:32px; font-size:0.95rem;">-</button>
+            <div id="visitorScore"
+                 style="min-width:30px; text-align:center; font-size:1.5rem; font-weight:700;">0</div>
+            <button id="visitorPlus"
+                    style="padding:4px 8px; min-width:32px; font-size:0.95rem;">+</button>
+          </div>
+        </div>
       </section>
 
       <!-- Right: main card + side charts -->
@@ -189,6 +217,7 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
