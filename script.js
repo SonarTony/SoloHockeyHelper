@@ -93,6 +93,16 @@ const chaosButton = document.getElementById('chaosButton');
 const chaosOverlayEl = document.getElementById('chaosOverlay');
 const closeChaosOverlayBtn = document.getElementById('closeChaosOverlay');
 
+// Goal Effect overlay elements
+const goalEffectButton = document.getElementById('goalEffectButton');
+const goalEffectOverlayEl = document.getElementById('goalEffectOverlay');
+const closeGoalEffectOverlayBtn = document.getElementById('closeGoalEffectOverlay');
+
+// Shot C overlay elements
+const shotCButton = document.getElementById('shotCButton');
+const shotCOverlayEl = document.getElementById('shotCOverlay');
+const closeShotCOverlayBtn = document.getElementById('closeShotCOverlay');
+
 let currentMode = 'even';
 let lastRoll = {
   white: null,
@@ -106,6 +116,8 @@ if (goalieOverlayEl) goalieOverlayEl.style.display = 'none';
 if (reboundOverlayEl) reboundOverlayEl.style.display = 'none';
 if (deflectionOverlayEl) deflectionOverlayEl.style.display = 'none';
 if (chaosOverlayEl) chaosOverlayEl.style.display = 'none';
+if (goalEffectOverlayEl) goalEffectOverlayEl.style.display = 'none';
+if (shotCOverlayEl) shotCOverlayEl.style.display = 'none';
 
 // Mode change handler
 modeRadios.forEach(radio => {
@@ -134,97 +146,40 @@ rollButton.addEventListener('click', () => {
   updateCard();
 });
 
-/* ---------- Goalie overlay ---------- */
+/* ---------- Overlay helpers ---------- */
 
-if (goalieButton && goalieOverlayEl) {
-  goalieButton.addEventListener('click', () => {
-    goalieOverlayEl.style.display = 'flex';
-  });
-}
+function wireOverlay(openBtn, overlay, closeBtn) {
+  if (!overlay) return;
 
-if (closeGoalieOverlayBtn && goalieOverlayEl) {
-  closeGoalieOverlayBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    goalieOverlayEl.style.display = 'none';
-  });
-}
+  // open
+  if (openBtn) {
+    openBtn.addEventListener('click', () => {
+      overlay.style.display = 'flex';
+    });
+  }
 
-if (goalieOverlayEl) {
-  goalieOverlayEl.addEventListener('click', (e) => {
-    if (e.target === goalieOverlayEl) {
-      goalieOverlayEl.style.display = 'none';
+  // close via X
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      overlay.style.display = 'none';
+    });
+  }
+
+  // close via background click
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+      overlay.style.display = 'none';
     }
   });
 }
 
-/* ---------- Rebound overlay ---------- */
-
-if (reboundButton && reboundOverlayEl) {
-  reboundButton.addEventListener('click', () => {
-    reboundOverlayEl.style.display = 'flex';
-  });
-}
-
-if (closeReboundOverlayBtn && reboundOverlayEl) {
-  closeReboundOverlayBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    reboundOverlayEl.style.display = 'none';
-  });
-}
-
-if (reboundOverlayEl) {
-  reboundOverlayEl.addEventListener('click', (e) => {
-    if (e.target === reboundOverlayEl) {
-      reboundOverlayEl.style.display = 'none';
-    }
-  });
-}
-
-/* ---------- Deflection overlay ---------- */
-
-if (deflectionButton && deflectionOverlayEl) {
-  deflectionButton.addEventListener('click', () => {
-    deflectionOverlayEl.style.display = 'flex';
-  });
-}
-
-if (closeDeflectionOverlayBtn && deflectionOverlayEl) {
-  closeDeflectionOverlayBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    deflectionOverlayEl.style.display = 'none';
-  });
-}
-
-if (deflectionOverlayEl) {
-  deflectionOverlayEl.addEventListener('click', (e) => {
-    if (e.target === deflectionOverlayEl) {
-      deflectionOverlayEl.style.display = 'none';
-    }
-  });
-}
-
-/* ---------- Chaos overlay ---------- */
-
-if (chaosButton && chaosOverlayEl) {
-  chaosButton.addEventListener('click', () => {
-    chaosOverlayEl.style.display = 'flex';
-  });
-}
-
-if (closeChaosOverlayBtn && chaosOverlayEl) {
-  closeChaosOverlayBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    chaosOverlayEl.style.display = 'none';
-  });
-}
-
-if (chaosOverlayEl) {
-  chaosOverlayEl.addEventListener('click', (e) => {
-    if (e.target === chaosOverlayEl) {
-      chaosOverlayEl.style.display = 'none';
-    }
-  });
-}
+wireOverlay(goalieButton, goalieOverlayEl, closeGoalieOverlayBtn);
+wireOverlay(reboundButton, reboundOverlayEl, closeReboundOverlayBtn);
+wireOverlay(deflectionButton, deflectionOverlayEl, closeDeflectionOverlayBtn);
+wireOverlay(chaosButton, chaosOverlayEl, closeChaosOverlayBtn);
+wireOverlay(goalEffectButton, goalEffectOverlayEl, closeGoalEffectOverlayBtn);
+wireOverlay(shotCButton, shotCOverlayEl, closeShotCOverlayBtn);
 
 /* ---------- Card + text updates ---------- */
 
@@ -263,6 +218,7 @@ function updateCard() {
 
 // Initial text
 updateResultText();
+
 
 
 
