@@ -4,7 +4,6 @@ function rollDie(sides) {
 }
 
 // Even-strength image map
-// Assumes files named images/even_1_1.png ... images/even_6_6.png
 const evenImages = {};
 for (let w = 1; w <= 6; w++) {
   for (let b = 1; b <= 6; b++) {
@@ -13,7 +12,7 @@ for (let w = 1; w <= 6; w++) {
   }
 }
 
-// Power play image map (all combos wired to your combined images)
+// Power play image map
 const ppImages = {
   '1-1': 'images/pp_1_1_2.png',
   '1-2': 'images/pp_1_1_2.png',
@@ -131,6 +130,21 @@ const brutalButton = document.getElementById('brutalButton');
 const brutalOverlayEl = document.getElementById('brutalOverlay');
 const closeBrutalOverlayBtn = document.getElementById('closeBrutalOverlay');
 
+// Counter overlay elements
+const counterButton = document.getElementById('counterButton');
+const counterOverlayEl = document.getElementById('counterOverlay');
+const closeCounterOverlayBtn = document.getElementById('closeCounterOverlay');
+
+// Assist overlay elements
+const assistButton = document.getElementById('assistButton');
+const assistOverlayEl = document.getElementById('assistOverlay');
+const closeAssistOverlayBtn = document.getElementById('closeAssistOverlay');
+
+// Gameday overlay elements
+const gamedayButton = document.getElementById('gamedayButton');
+const gamedayOverlayEl = document.getElementById('gamedayOverlay');
+const closeGamedayOverlayBtn = document.getElementById('closeGamedayOverlay');
+
 let currentMode = 'even';
 let lastRoll = {
   white: null,
@@ -140,13 +154,13 @@ let lastRoll = {
 };
 
 // GAME CLOCK STATE (20:00 in seconds)
-let clockSeconds = 20 * 60; // 1200 seconds
+let clockSeconds = 20 * 60;
 
 // SCOREBOARD STATE
 let homeScore = 0;
 let visitorScore = 0;
 
-// PERIOD STATE (1,2,3,OT,SO)
+// PERIOD STATE
 const periodStates = ['1', '2', '3', 'OT', 'SO'];
 let periodIndex = 0;
 
@@ -159,6 +173,9 @@ if (goalEffectOverlayEl) goalEffectOverlayEl.style.display = 'none';
 if (shotCOverlayEl) shotCOverlayEl.style.display = 'none';
 if (penaltyOverlayEl) penaltyOverlayEl.style.display = 'none';
 if (brutalOverlayEl) brutalOverlayEl.style.display = 'none';
+if (counterOverlayEl) counterOverlayEl.style.display = 'none';
+if (assistOverlayEl) assistOverlayEl.style.display = 'none';
+if (gamedayOverlayEl) gamedayOverlayEl.style.display = 'none';
 
 // Mode change handler
 modeRadios.forEach(radio => {
@@ -201,7 +218,6 @@ function updateClockDisplay() {
   }
 }
 
-// manual -0:20, clamped at 0
 if (clockMinusBtn) {
   clockMinusBtn.addEventListener('click', () => {
     clockSeconds = Math.max(0, clockSeconds - 20);
@@ -209,7 +225,6 @@ if (clockMinusBtn) {
   });
 }
 
-// manual +0:20, clamped at 20:00 (period length)
 if (clockPlusBtn) {
   clockPlusBtn.addEventListener('click', () => {
     clockSeconds = Math.min(20 * 60, clockSeconds + 20);
@@ -224,7 +239,6 @@ function updateScoreDisplay() {
   if (visitorScoreEl) visitorScoreEl.textContent = visitorScore.toString();
 }
 
-// Home score buttons
 if (homeMinusBtn) {
   homeMinusBtn.addEventListener('click', () => {
     homeScore = Math.max(0, homeScore - 1);
@@ -238,7 +252,6 @@ if (homePlusBtn) {
   });
 }
 
-// Visitor score buttons
 if (visitorMinusBtn) {
   visitorMinusBtn.addEventListener('click', () => {
     visitorScore = Math.max(0, visitorScore - 1);
@@ -283,14 +296,12 @@ if (periodPlusBtn) {
 function wireOverlay(openBtn, overlay, closeBtn) {
   if (!overlay) return;
 
-  // open
   if (openBtn) {
     openBtn.addEventListener('click', () => {
       overlay.style.display = 'flex';
     });
   }
 
-  // close via X
   if (closeBtn) {
     closeBtn.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -298,7 +309,6 @@ function wireOverlay(openBtn, overlay, closeBtn) {
     });
   }
 
-  // close via background click
   overlay.addEventListener('click', (e) => {
     if (e.target === overlay) {
       overlay.style.display = 'none';
@@ -314,6 +324,9 @@ wireOverlay(goalEffectButton, goalEffectOverlayEl, closeGoalEffectOverlayBtn);
 wireOverlay(shotCButton, shotCOverlayEl, closeShotCOverlayBtn);
 wireOverlay(penaltyButton, penaltyOverlayEl, closePenaltyOverlayBtn);
 wireOverlay(brutalButton, brutalOverlayEl, closeBrutalOverlayBtn);
+wireOverlay(counterButton, counterOverlayEl, closeCounterOverlayBtn);
+wireOverlay(assistButton, assistOverlayEl, closeAssistOverlayBtn);
+wireOverlay(gamedayButton, gamedayOverlayEl, closeGamedayOverlayBtn);
 
 /* ---------- Card + text updates ---------- */
 
@@ -355,6 +368,8 @@ updateResultText();
 updateClockDisplay();
 updateScoreDisplay();
 updatePeriodDisplay();
+
+
 
 
 

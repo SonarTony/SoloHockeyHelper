@@ -60,7 +60,7 @@
           <img src="images/no_goal_pp.png" alt="No goal PP reference">
         </div>
 
-        <!-- GAME CLOCK (centered and bigger via inline styles) -->
+        <!-- GAME CLOCK -->
         <div class="game-clock"
              style="margin-top:20px; display:flex; flex-direction:column; align-items:center; text-align:center;">
           <h3 class="game-clock-title" style="font-size:1.25rem; margin-bottom:6px;">Game Clock</h3>
@@ -83,7 +83,7 @@
           </div>
         </div>
 
-        <!-- SCOREBOARD (below game clock, fits in left panel) -->
+        <!-- SCOREBOARD -->
         <div class="scoreboard"
              style="margin-top:18px; display:flex; flex-direction:column; align-items:center; text-align:center; gap:8px;">
           <h3 style="font-size:1.15rem; margin-bottom:2px;">Score</h3>
@@ -138,6 +138,9 @@
             <button id="shotCButton" class="chart-toggle-button">Shot C</button>
             <button id="penaltyButton" class="chart-toggle-button">Penalty</button>
             <button id="brutalButton" class="chart-toggle-button">Brutal Play</button>
+            <button id="counterButton" class="chart-toggle-button">Counter</button>
+            <button id="assistButton" class="chart-toggle-button">Assists</button>
+            <button id="gamedayButton" class="chart-toggle-button">Gameday</button>
           </div>
         </div>
 
@@ -208,7 +211,7 @@
         </div>
 
         <!-- Penalty chart overlay -->
-        <div id="penaltyOverlay" class="goalie-overlay" style="display: none%;">
+        <div id="penaltyOverlay" class="goalie-overlay" style="display: none;">
           <div class="goalie-overlay-content">
             <button id="closePenaltyOverlay" class="chart-close-button">X</button>
             <img src="images/penalty_chart.png" alt="Penalty chart">
@@ -222,6 +225,30 @@
             <img src="images/brutal_play_chart.png" alt="Brutal Play chart">
           </div>
         </div>
+
+        <!-- Counter chart overlay -->
+        <div id="counterOverlay" class="goalie-overlay" style="display: none;">
+          <div class="goalie-overlay-content">
+            <button id="closeCounterOverlay" class="chart-close-button">X</button>
+            <img src="images/counter_chart.png" alt="Counter chart">
+          </div>
+        </div>
+
+        <!-- Assists chart overlay -->
+        <div id="assistOverlay" class="goalie-overlay" style="display: none;">
+          <div class="goalie-overlay-content">
+            <button id="closeAssistOverlay" class="chart-close-button">X</button>
+            <img src="images/assists_chart.png" alt="Assists chart">
+          </div>
+        </div>
+
+        <!-- Gameday chart overlay -->
+        <div id="gamedayOverlay" class="goalie-overlay" style="display: none;">
+          <div class="goalie-overlay-content">
+            <button id="closeGamedayOverlay" class="chart-close-button">X</button>
+            <img src="images/gameday_chart.png" alt="Gameday chart">
+          </div>
+        </div>
       </section>
     </main>
   </div>
@@ -229,6 +256,7 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
