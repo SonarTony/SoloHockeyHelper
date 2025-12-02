@@ -141,6 +141,7 @@
             <button id="counterButton" class="chart-toggle-button">Counter</button>
             <button id="assistButton" class="chart-toggle-button">Assists</button>
             <button id="gamedayButton" class="chart-toggle-button">Gameday</button>
+            <button id="injuryButton" class="chart-toggle-button">Injury</button>
           </div>
         </div>
 
@@ -249,6 +250,14 @@
             <img src="images/gameday_chart.png" alt="Gameday chart">
           </div>
         </div>
+
+        <!-- Injury chart overlay -->
+        <div id="injuryOverlay" class="goalie-overlay" style="display: none;">
+          <div class="goalie-overlay-content">
+            <button id="closeInjuryOverlay" class="chart-close-button">X</button>
+            <img src="images/injury_chart.png" alt="Injury chart">
+          </div>
+        </div>
       </section>
     </main>
   </div>
@@ -256,7 +265,6 @@
   <script src="script.js"></script>
 </body>
 </html>
-
 
 
 

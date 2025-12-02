@@ -145,6 +145,11 @@ const gamedayButton = document.getElementById('gamedayButton');
 const gamedayOverlayEl = document.getElementById('gamedayOverlay');
 const closeGamedayOverlayBtn = document.getElementById('closeGamedayOverlay');
 
+// Injury overlay elements
+const injuryButton = document.getElementById('injuryButton');
+const injuryOverlayEl = document.getElementById('injuryOverlay');
+const closeInjuryOverlayBtn = document.getElementById('closeInjuryOverlay');
+
 let currentMode = 'even';
 let lastRoll = {
   white: null,
@@ -176,6 +181,7 @@ if (brutalOverlayEl) brutalOverlayEl.style.display = 'none';
 if (counterOverlayEl) counterOverlayEl.style.display = 'none';
 if (assistOverlayEl) assistOverlayEl.style.display = 'none';
 if (gamedayOverlayEl) gamedayOverlayEl.style.display = 'none';
+if (injuryOverlayEl) injuryOverlayEl.style.display = 'none';
 
 // Mode change handler
 modeRadios.forEach(radio => {
@@ -327,6 +333,7 @@ wireOverlay(brutalButton, brutalOverlayEl, closeBrutalOverlayBtn);
 wireOverlay(counterButton, counterOverlayEl, closeCounterOverlayBtn);
 wireOverlay(assistButton, assistOverlayEl, closeAssistOverlayBtn);
 wireOverlay(gamedayButton, gamedayOverlayEl, closeGamedayOverlayBtn);
+wireOverlay(injuryButton, injuryOverlayEl, closeInjuryOverlayBtn);
 
 /* ---------- Card + text updates ---------- */
 
@@ -368,6 +375,8 @@ updateResultText();
 updateClockDisplay();
 updateScoreDisplay();
 updatePeriodDisplay();
+
+
 
 
 
