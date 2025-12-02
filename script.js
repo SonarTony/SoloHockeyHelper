@@ -83,6 +83,16 @@ const reboundButton = document.getElementById('reboundButton');
 const reboundOverlayEl = document.getElementById('reboundOverlay');
 const closeReboundOverlayBtn = document.getElementById('closeReboundOverlay');
 
+// Deflection overlay elements
+const deflectionButton = document.getElementById('deflectionButton');
+const deflectionOverlayEl = document.getElementById('deflectionOverlay');
+const closeDeflectionOverlayBtn = document.getElementById('closeDeflectionOverlay');
+
+// Chaos overlay elements
+const chaosButton = document.getElementById('chaosButton');
+const chaosOverlayEl = document.getElementById('chaosOverlay');
+const closeChaosOverlayBtn = document.getElementById('closeChaosOverlay');
+
 let currentMode = 'even';
 let lastRoll = {
   white: null,
@@ -94,6 +104,8 @@ let lastRoll = {
 // Make sure overlays start hidden
 if (goalieOverlayEl) goalieOverlayEl.style.display = 'none';
 if (reboundOverlayEl) reboundOverlayEl.style.display = 'none';
+if (deflectionOverlayEl) deflectionOverlayEl.style.display = 'none';
+if (chaosOverlayEl) chaosOverlayEl.style.display = 'none';
 
 // Mode change handler
 modeRadios.forEach(radio => {
@@ -122,14 +134,14 @@ rollButton.addEventListener('click', () => {
   updateCard();
 });
 
-// Goalie overlay open
+/* ---------- Goalie overlay ---------- */
+
 if (goalieButton && goalieOverlayEl) {
   goalieButton.addEventListener('click', () => {
     goalieOverlayEl.style.display = 'flex';
   });
 }
 
-// Goalie overlay close (X button)
 if (closeGoalieOverlayBtn && goalieOverlayEl) {
   closeGoalieOverlayBtn.addEventListener('click', (e) => {
     e.stopPropagation();
@@ -137,7 +149,6 @@ if (closeGoalieOverlayBtn && goalieOverlayEl) {
   });
 }
 
-// Close goalie overlay when clicking the dark background
 if (goalieOverlayEl) {
   goalieOverlayEl.addEventListener('click', (e) => {
     if (e.target === goalieOverlayEl) {
@@ -146,14 +157,14 @@ if (goalieOverlayEl) {
   });
 }
 
-// Rebound overlay open
+/* ---------- Rebound overlay ---------- */
+
 if (reboundButton && reboundOverlayEl) {
   reboundButton.addEventListener('click', () => {
     reboundOverlayEl.style.display = 'flex';
   });
 }
 
-// Rebound overlay close (X button)
 if (closeReboundOverlayBtn && reboundOverlayEl) {
   closeReboundOverlayBtn.addEventListener('click', (e) => {
     e.stopPropagation();
@@ -161,7 +172,6 @@ if (closeReboundOverlayBtn && reboundOverlayEl) {
   });
 }
 
-// Close rebound overlay when clicking the dark background
 if (reboundOverlayEl) {
   reboundOverlayEl.addEventListener('click', (e) => {
     if (e.target === reboundOverlayEl) {
@@ -169,6 +179,54 @@ if (reboundOverlayEl) {
     }
   });
 }
+
+/* ---------- Deflection overlay ---------- */
+
+if (deflectionButton && deflectionOverlayEl) {
+  deflectionButton.addEventListener('click', () => {
+    deflectionOverlayEl.style.display = 'flex';
+  });
+}
+
+if (closeDeflectionOverlayBtn && deflectionOverlayEl) {
+  closeDeflectionOverlayBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    deflectionOverlayEl.style.display = 'none';
+  });
+}
+
+if (deflectionOverlayEl) {
+  deflectionOverlayEl.addEventListener('click', (e) => {
+    if (e.target === deflectionOverlayEl) {
+      deflectionOverlayEl.style.display = 'none';
+    }
+  });
+}
+
+/* ---------- Chaos overlay ---------- */
+
+if (chaosButton && chaosOverlayEl) {
+  chaosButton.addEventListener('click', () => {
+    chaosOverlayEl.style.display = 'flex';
+  });
+}
+
+if (closeChaosOverlayBtn && chaosOverlayEl) {
+  closeChaosOverlayBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    chaosOverlayEl.style.display = 'none';
+  });
+}
+
+if (chaosOverlayEl) {
+  chaosOverlayEl.addEventListener('click', (e) => {
+    if (e.target === chaosOverlayEl) {
+      chaosOverlayEl.style.display = 'none';
+    }
+  });
+}
+
+/* ---------- Card + text updates ---------- */
 
 function updateResultText() {
   const modeLabel = currentMode === 'even' ? 'Even Strength' : 'Power Play';
@@ -205,6 +263,7 @@ function updateCard() {
 
 // Initial text
 updateResultText();
+
 
 
 

@@ -63,12 +63,14 @@
 
       <!-- Right: main card + side charts -->
       <section class="card-area">
-        <!-- Header with Result Card text and Goalie/Rebound buttons -->
+        <!-- Header with Result Card text and chart buttons -->
         <div class="card-header">
           <h2>Result Card</h2>
           <div class="chart-buttons">
             <button id="goalieButton" class="chart-toggle-button">Goalie</button>
             <button id="reboundButton" class="chart-toggle-button">Rebound</button>
+            <button id="deflectionButton" class="chart-toggle-button">Deflection</button>
+            <button id="chaosButton" class="chart-toggle-button">Chaos</button>
           </div>
         </div>
 
@@ -90,7 +92,7 @@
           No card for this white and black combo yet.
         </div>
 
-        <!-- Goalie chart overlay that pops up over the card area -->
+        <!-- Goalie chart overlay -->
         <div id="goalieOverlay" class="goalie-overlay" style="display: none;">
           <div class="goalie-overlay-content">
             <button id="closeGoalieOverlay" class="chart-close-button">X</button>
@@ -98,11 +100,27 @@
           </div>
         </div>
 
-        <!-- Rebound chart overlay that pops up over the card area -->
+        <!-- Rebound chart overlay -->
         <div id="reboundOverlay" class="goalie-overlay" style="display: none;">
           <div class="goalie-overlay-content">
             <button id="closeReboundOverlay" class="chart-close-button">X</button>
             <img src="images/rebound_chart.png" alt="Rebound chart">
+          </div>
+        </div>
+
+        <!-- Deflection chart overlay -->
+        <div id="deflectionOverlay" class="goalie-overlay" style="display: none;">
+          <div class="goalie-overlay-content">
+            <button id="closeDeflectionOverlay" class="chart-close-button">X</button>
+            <img src="images/deflection_chart.png" alt="Deflection chart">
+          </div>
+        </div>
+
+        <!-- Chaos chart overlay -->
+        <div id="chaosOverlay" class="goalie-overlay" style="display: none;">
+          <div class="goalie-overlay-content">
+            <button id="closeChaosOverlay" class="chart-close-button">X</button>
+            <img src="images/chaos_chart.png" alt="Chaos chart">
           </div>
         </div>
       </section>
