@@ -29,6 +29,34 @@ const ppImages = {
   '2-4': 'images/pp_2_3_4.png',
   '2-5': 'images/pp_2_5_6.png',
   '2-6': 'images/pp_2_5_6.png',
+
+    '3-1': 'images/pp_3_1_2.png',
+    '3-2': 'images/pp_3_1_2.png',
+    '3-3': 'images/pp_3_3_4.png',
+    '3-4': 'images/pp_3_3_4.png',
+    '3-5': 'images/pp_3_5_6.png',
+    '3-6': 'images/pp_3_5_6.png',
+
+    '4-1': 'images/pp_4_1_2.png',
+    '4-2': 'images/pp_4_1_2.png',
+    '4-3': 'images/pp_4_3_4.png',
+    '4-4': 'images/pp_4_3_4.png',
+    '4-5': 'images/pp_4_5_6.png',
+    '4-6': 'images/pp_4_5_6.png',
+
+    '5-1': 'images/pp_5_1_2.png',
+    '5-2': 'images/pp_5_1_2.png',
+    '5-3': 'images/pp_5_3_4.png',
+    '5-4': 'images/pp_5_3_4.png',
+    '5-5': 'images/pp_5_5_6.png',
+    '5-6': 'images/pp_5_5_6.png',
+
+    '6-1': 'images/pp_6_1_2.png',
+    '6-2': 'images/pp_6_1_2.png',
+    '6-3': 'images/pp_6_3_4.png',
+    '6-4': 'images/pp_6_3_4.png',
+    '6-5': 'images/pp_6_5_6.png',
+    '6-6': 'images/pp_6_5_6.png',
   // add more pp mappings later as you create them
 };
 
