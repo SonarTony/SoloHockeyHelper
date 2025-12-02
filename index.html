@@ -55,7 +55,7 @@
           Mode: Even Strength | White -, Black -, Red -, Green -.
         </div>
 
-        <!-- NEW: NO GOAL PP helper image under roll text -->
+        <!-- No-Goal PP helper image under result text -->
         <div class="no-goal-pp">
           <img src="images/no_goal_pp.png" alt="No goal PP reference">
         </div>
@@ -63,7 +63,14 @@
 
       <!-- Right: main card + side charts -->
       <section class="card-area">
-        <h2>Result Card</h2>
+        <!-- Header with Result Card text and Goalie/Rebound buttons -->
+        <div class="card-header">
+          <h2>Result Card</h2>
+          <div class="chart-buttons">
+            <button id="goalieButton" class="chart-toggle-button">Goalie</button>
+            <button id="reboundButton" class="chart-toggle-button">Rebound</button>
+          </div>
+        </div>
 
         <div class="card-row">
           <div id="cardContainer" class="card-container hidden">
@@ -82,6 +89,22 @@
         <div id="noCardMessage" class="no-card-message">
           No card for this white and black combo yet.
         </div>
+
+        <!-- Goalie chart overlay that pops up over the card area -->
+        <div id="goalieOverlay" class="goalie-overlay" style="display: none;">
+          <div class="goalie-overlay-content">
+            <button id="closeGoalieOverlay" class="chart-close-button">X</button>
+            <img src="images/goalie_chart.png" alt="Goalie chart">
+          </div>
+        </div>
+
+        <!-- Rebound chart overlay that pops up over the card area -->
+        <div id="reboundOverlay" class="goalie-overlay" style="display: none;">
+          <div class="goalie-overlay-content">
+            <button id="closeReboundOverlay" class="chart-close-button">X</button>
+            <img src="images/rebound_chart.png" alt="Rebound chart">
+          </div>
+        </div>
       </section>
     </main>
   </div>
@@ -89,5 +112,10 @@
   <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+
 
 

@@ -53,6 +53,7 @@ main {
   border-radius: 8px;
   padding: 16px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  position: relative; /* for goalie overlay positioning */
 }
 
 /* Mode toggle */
@@ -164,11 +165,29 @@ main {
   color: #e5e7eb;
 }
 
+/* No Goal PP helper image */
+
+.no-goal-pp {
+  margin-top: 8px;
+  text-align: center;
+}
+
+.no-goal-pp img {
+  max-width: 100%;
+  height: auto;
+}
+
 /* Card area */
 
-.card-area h2 {
-  margin-top: 0;
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 10px;
+}
+
+.card-area h2 {
+  margin: 0;
   font-size: 1.1rem;
 }
 
@@ -176,6 +195,22 @@ main {
   display: flex;
   gap: 12px;
   align-items: flex-start;
+}
+
+/* Goalie button */
+
+.chart-toggle-button {
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: #4b5563;
+  color: #f9fafb;
+}
+
+.chart-toggle-button:hover {
+  background: #6b7280;
 }
 
 /* Main event card container */
@@ -231,20 +266,55 @@ main {
   color: #9ca3af;
 }
 
+/* Hidden helper (used for cards, not overlay now) */
+
 .hidden {
   display: none;
 }
 
-/* NEW: No Goal PP image under result text */
+/* Goalie overlay that pops up over the card area */
 
-.no-goal-pp {
-  margin-top: 8px;
-  text-align: center;
+.goalie-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.9);
+  display: flex;           /* JS will set display to flex/none */
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
 }
 
-.no-goal-pp img {
+.goalie-overlay-content {
+  background: #111827;
+  border-radius: 10px;
+  padding: 10px;
+  max-width: 95%;
+  max-height: 95%;
+  overflow: auto;
+  position: relative;
+}
+
+.goalie-overlay-content img {
+  display: block;
   max-width: 100%;
   height: auto;
+}
+
+.chart-close-button {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  border: none;
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  background: #4b5563;
+  color: #f9fafb;
+}
+
+.chart-close-button:hover {
+  background: #6b7280;
 }
 
 /* Small screens */
@@ -270,7 +340,18 @@ main {
   .goal-chart-container {
     flex: 0 0 140px;
   }
+
+  .goalie-overlay-content {
+    max-width: 100%;
+    max-height: 100%;
+  }
 }
+
+
+
+
+
+
 
 
 

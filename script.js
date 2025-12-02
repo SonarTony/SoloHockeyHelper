@@ -13,8 +13,7 @@ for (let w = 1; w <= 6; w++) {
   }
 }
 
-// Power play image map
-// For now only 1-1 and 1-2 use the same combined image
+// Power play image map (all combos wired to your combined images)
 const ppImages = {
   '1-1': 'images/pp_1_1_2.png',
   '1-2': 'images/pp_1_1_2.png',
@@ -30,34 +29,33 @@ const ppImages = {
   '2-5': 'images/pp_2_5_6.png',
   '2-6': 'images/pp_2_5_6.png',
 
-    '3-1': 'images/pp_3_1_2.png',
-    '3-2': 'images/pp_3_1_2.png',
-    '3-3': 'images/pp_3_3_4.png',
-    '3-4': 'images/pp_3_3_4.png',
-    '3-5': 'images/pp_3_5_6.png',
-    '3-6': 'images/pp_3_5_6.png',
+  '3-1': 'images/pp_3_1_2.png',
+  '3-2': 'images/pp_3_1_2.png',
+  '3-3': 'images/pp_3_3_4.png',
+  '3-4': 'images/pp_3_3_4.png',
+  '3-5': 'images/pp_3_5_6.png',
+  '3-6': 'images/pp_3_5_6.png',
 
-    '4-1': 'images/pp_4_1_2.png',
-    '4-2': 'images/pp_4_1_2.png',
-    '4-3': 'images/pp_4_3_4.png',
-    '4-4': 'images/pp_4_3_4.png',
-    '4-5': 'images/pp_4_5_6.png',
-    '4-6': 'images/pp_4_5_6.png',
+  '4-1': 'images/pp_4_1_2.png',
+  '4-2': 'images/pp_4_1_2.png',
+  '4-3': 'images/pp_4_3_4.png',
+  '4-4': 'images/pp_4_3_4.png',
+  '4-5': 'images/pp_4_5_6.png',
+  '4-6': 'images/pp_4_5_6.png',
 
-    '5-1': 'images/pp_5_1_2.png',
-    '5-2': 'images/pp_5_1_2.png',
-    '5-3': 'images/pp_5_3_4.png',
-    '5-4': 'images/pp_5_3_4.png',
-    '5-5': 'images/pp_5_5_6.png',
-    '5-6': 'images/pp_5_5_6.png',
+  '5-1': 'images/pp_5_1_2.png',
+  '5-2': 'images/pp_5_1_2.png',
+  '5-3': 'images/pp_5_3_4.png',
+  '5-4': 'images/pp_5_3_4.png',
+  '5-5': 'images/pp_5_5_6.png',
+  '5-6': 'images/pp_5_5_6.png',
 
-    '6-1': 'images/pp_6_1_2.png',
-    '6-2': 'images/pp_6_1_2.png',
-    '6-3': 'images/pp_6_3_4.png',
-    '6-4': 'images/pp_6_3_4.png',
-    '6-5': 'images/pp_6_5_6.png',
-    '6-6': 'images/pp_6_5_6.png',
-  // add more pp mappings later as you create them
+  '6-1': 'images/pp_6_1_2.png',
+  '6-2': 'images/pp_6_1_2.png',
+  '6-3': 'images/pp_6_3_4.png',
+  '6-4': 'images/pp_6_3_4.png',
+  '6-5': 'images/pp_6_5_6.png',
+  '6-6': 'images/pp_6_5_6.png'
 };
 
 // DOM elements
@@ -75,6 +73,16 @@ const noCardMessageEl = document.getElementById('noCardMessage');
 
 const modeRadios = document.querySelectorAll('input[name="mode"]');
 
+// Goalie overlay elements
+const goalieButton = document.getElementById('goalieButton');
+const goalieOverlayEl = document.getElementById('goalieOverlay');
+const closeGoalieOverlayBtn = document.getElementById('closeGoalieOverlay');
+
+// Rebound overlay elements
+const reboundButton = document.getElementById('reboundButton');
+const reboundOverlayEl = document.getElementById('reboundOverlay');
+const closeReboundOverlayBtn = document.getElementById('closeReboundOverlay');
+
 let currentMode = 'even';
 let lastRoll = {
   white: null,
@@ -83,12 +91,18 @@ let lastRoll = {
   green: null
 };
 
+// Make sure overlays start hidden
+if (goalieOverlayEl) goalieOverlayEl.style.display = 'none';
+if (reboundOverlayEl) reboundOverlayEl.style.display = 'none';
+
 // Mode change handler
 modeRadios.forEach(radio => {
   radio.addEventListener('change', () => {
-    currentMode = radio.value;
-    updateResultText();
-    updateCard();
+    if (radio.checked) {
+      currentMode = radio.value;
+      updateResultText();
+      updateCard();
+    }
   });
 });
 
@@ -107,6 +121,54 @@ rollButton.addEventListener('click', () => {
   updateResultText();
   updateCard();
 });
+
+// Goalie overlay open
+if (goalieButton && goalieOverlayEl) {
+  goalieButton.addEventListener('click', () => {
+    goalieOverlayEl.style.display = 'flex';
+  });
+}
+
+// Goalie overlay close (X button)
+if (closeGoalieOverlayBtn && goalieOverlayEl) {
+  closeGoalieOverlayBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    goalieOverlayEl.style.display = 'none';
+  });
+}
+
+// Close goalie overlay when clicking the dark background
+if (goalieOverlayEl) {
+  goalieOverlayEl.addEventListener('click', (e) => {
+    if (e.target === goalieOverlayEl) {
+      goalieOverlayEl.style.display = 'none';
+    }
+  });
+}
+
+// Rebound overlay open
+if (reboundButton && reboundOverlayEl) {
+  reboundButton.addEventListener('click', () => {
+    reboundOverlayEl.style.display = 'flex';
+  });
+}
+
+// Rebound overlay close (X button)
+if (closeReboundOverlayBtn && reboundOverlayEl) {
+  closeReboundOverlayBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    reboundOverlayEl.style.display = 'none';
+  });
+}
+
+// Close rebound overlay when clicking the dark background
+if (reboundOverlayEl) {
+  reboundOverlayEl.addEventListener('click', (e) => {
+    if (e.target === reboundOverlayEl) {
+      reboundOverlayEl.style.display = 'none';
+    }
+  });
+}
 
 function updateResultText() {
   const modeLabel = currentMode === 'even' ? 'Even Strength' : 'Power Play';
@@ -143,6 +205,15 @@ function updateCard() {
 
 // Initial text
 updateResultText();
+
+
+
+
+
+
+
+
+
 
 
 
