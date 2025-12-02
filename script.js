@@ -20,6 +20,15 @@ const ppImages = {
   '1-2': 'images/pp_1_1_2.png',
   '1-3': 'images/pp_1_3_4.png',
   '1-4': 'images/pp_1_3_4.png',
+  '1-5': 'images/pp_1_5_6.png',
+  '1-6': 'images/pp_1_5_6.png',
+
+  '2-1': 'images/pp_2_1_2.png',
+  '2-2': 'images/pp_2_1_2.png',
+  '2-3': 'images/pp_2_3_4.png',
+  '2-4': 'images/pp_2_3_4.png',
+  '2-5': 'images/pp_2_5_6.png',
+  '2-6': 'images/pp_2_5_6.png',
   // add more pp mappings later as you create them
 };
 
