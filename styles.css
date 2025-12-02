@@ -178,7 +178,7 @@ main {
   align-items: flex-start;
 }
 
-/* Main event card container (even image) */
+/* Main event card container (even / PP image) */
 
 .card-container {
   flex: 1 1 auto;
@@ -189,7 +189,7 @@ main {
 }
 
 .card-container img {
-  max-width: 96%;  /* ONLY CHANGE: even card image ~10% bigger */
+  max-width: 96%;
   height: auto;
   display: block;
   margin: 0 auto;
@@ -210,7 +210,7 @@ main {
   height: auto;
 }
 
-/* Results chart (goal chart) */
+/* Results / goal chart */
 
 .goal-chart-container {
   flex: 0 0 155px;
