@@ -74,8 +74,10 @@ const modeRadios = document.querySelectorAll('input[name="mode"]');
 
 // Game clock elements
 const gameClockEl = document.getElementById('gameClock');
+const elapsedClockEl = document.getElementById('elapsedClock');
 const clockMinusBtn = document.getElementById('clockMinus');
 const clockPlusBtn = document.getElementById('clockPlus');
+const clockResetBtn = document.getElementById('clockReset');
 
 // Scoreboard elements
 const homeScoreEl = document.getElementById('homeScore');
@@ -158,14 +160,14 @@ let lastRoll = {
   green: null
 };
 
-// GAME CLOCK STATE (20:00 in seconds)
-let clockSeconds = 20 * 60;
+// Clock and scoreboard state
+const TOTAL_PERIOD_SECONDS = 20 * 60;
+let clockSeconds = TOTAL_PERIOD_SECONDS;
 
-// SCOREBOARD STATE
 let homeScore = 0;
 let visitorScore = 0;
 
-// PERIOD STATE
+// Period state
 const periodStates = ['1', '2', '3', 'OT', 'SO'];
 let periodIndex = 0;
 
@@ -222,6 +224,10 @@ function updateClockDisplay() {
   if (gameClockEl) {
     gameClockEl.textContent = formatClock(clockSeconds);
   }
+  if (elapsedClockEl) {
+    const elapsed = TOTAL_PERIOD_SECONDS - clockSeconds;
+    elapsedClockEl.textContent = formatClock(elapsed);
+  }
 }
 
 if (clockMinusBtn) {
@@ -233,7 +239,14 @@ if (clockMinusBtn) {
 
 if (clockPlusBtn) {
   clockPlusBtn.addEventListener('click', () => {
-    clockSeconds = Math.min(20 * 60, clockSeconds + 20);
+    clockSeconds = Math.min(TOTAL_PERIOD_SECONDS, clockSeconds + 20);
+    updateClockDisplay();
+  });
+}
+
+if (clockResetBtn) {
+  clockResetBtn.addEventListener('click', () => {
+    clockSeconds = TOTAL_PERIOD_SECONDS;
     updateClockDisplay();
   });
 }
@@ -375,6 +388,7 @@ updateResultText();
 updateClockDisplay();
 updateScoreDisplay();
 updatePeriodDisplay();
+
 
 
 
